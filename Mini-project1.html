@@ -1,0 +1,115 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count-Vowels</title>
+    <style>
+        header{
+            margin: 10px;
+            margin-left: 38%;
+            font-size: 30px;
+           
+        }
+        .text {
+            margin-left: 35%;
+            padding: 50px;
+            border: 3px solid black;
+
+        }
+        .btn{
+            margin: 10px;
+            margin-left: 38%;
+        }
+        #res{
+            margin: 10px;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Vowel Counter
+    </header>
+    <textarea class="text" id="vowel"></textarea><br>
+    <button class="btn">Count Vowel</button>
+    <input id="res" type="reset">
+
+    <script>
+
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Counter</title>
+
+    <style>
+    body {
+    background-color: #f7f7f7;
+    display: flex;
+    height: 500px;
+    margin: 20px;
+}
+div{
+    margin: 20px;
+    margin-left: 500px;
+}
+.button-container{
+    margin-left: 1px;
+}
+#inputText{
+    width: 200px;
+    height: 150px;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vowel Counter</h1>
+
+        <textarea id="inputText" placeholder="Enter your text"></textarea>
+
+        <div class="button-container">
+            <button id="btn1">Count Vowels</button>
+            <button id="btn2" >Reset</button>
+        </div>
+        <h2 id="vowelCount">Vowel Count: </h2>
+    </div>
+
+    <script>
+
+function countVowels() {
+
+    const btnn1 = document.getElementById('btn1')
+    const btnn2 = document.getElementById('btn2')
+
+    const text = document.getElementById('inputText').value.toLowerCase();
+    
+    const vowels = "aeiou"
+    let vowelCount = 0;
+
+    for (let i = 0; i < text.length; i++) {
+    if (vowels.includes(text[i])) {
+        vowelCount++;   
+    }
+}
+
+    document.getElementById('vowelCount').innerText = `Vowel Count: ${vowelCount}`;
+}
+
+function reset() {
+
+    document.getElementById('inputText').value = '';
+
+    document.getElementById('vowelCount').innerText = 'Vowel Count: 0';
+}
+document.getElementById('btn1').addEventListener('click', countVowels);
+document.getElementById('btn2').addEventListener('click', reset);
+    </script>
+</body>
+</html>
