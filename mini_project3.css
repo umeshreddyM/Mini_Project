@@ -1,0 +1,23 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color:rgb(15, 15, 15);
+}
+.container{
+    position: absolute;
+}
+.hand{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.hand i{
+    position:absolute;
+    background-color: var(--clr);
+    width: 4px;
+    height: var(--h);
+    border-radius: 8px;
+}

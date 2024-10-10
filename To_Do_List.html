@@ -1,0 +1,251 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            background-color: grey(13, 11, 11);
+        }
+        .container{
+            width: 360px;
+            height: 33px;
+            text-align: center;
+            background-color: #ffff;
+            margin-left: 33%;
+            margin-top: 5px;
+        } 
+        input{
+            width: 270px;
+            padding: 8px;
+            border: 2px solid grey;
+            outline: none;
+        }
+        button{
+            width: 60px;
+            height: 41px;
+            background-color: rgb(15, 14, 14);
+            color: white;
+            border-radius: 2px;
+            font-size: 19px;
+            border: none;
+            outline: none;
+        }
+        .text ul{
+            position: relative;
+            background-color: rgb(46, 56, 56);
+            color: white;
+            font-size: 19px;
+            text-align: left;
+            padding: 7px;
+
+        }
+        .text ul i{
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>ToDo List</h1>
+            <div class="input">
+                <input type="text" placeholder="Enter your task" id="input">
+                <button id="btn">Add</button>
+            </div>
+        <div class="text"></div>
+    </div>
+
+
+
+    <script>
+        let inputs = document.getElementById("input")
+        let text = document.querySelector(".text")
+        let Btn = document.getElementById("btn")
+
+        Btn.addEventListener("click" ,() =>{
+            if(inputs.value == ""){
+                alert("Please enter task")
+            }else{
+                let newEle = document.createElement("ul")
+                newEle.innerHTML = `${inputs.value} <i class="fa-solid fa-x"></i>`;
+                text.appendChild(newEle);
+                inputs.value = "";
+                newEle.querySelector("i").addEventListener("click", () =>{
+                    newEle.remove()
+                })
+            }
+        })
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            background-color: grey(13, 11, 11);
+        }
+        .container{
+            width: 360px;
+            height: 33px;
+            text-align: center;
+            background-color: #ffff;
+            margin-left: 33%;
+            margin-top: 5px;
+        } 
+        input{
+            width: 270px;
+            padding: 8px;
+            border: 2px solid grey;
+            outline: none;
+        }
+        button{
+            width: 60px;
+            height: 41px;
+            background-color: rgb(15, 14, 14);
+            color: white;
+            border-radius: 2px;
+            font-size: 19px;
+            border: none;
+            outline: none;
+        }
+        .text ul{
+            position: relative;
+            width: 350px;
+            background-color: rgb(46, 56, 56);
+            color: white;
+            font-size: 19px;
+            text-align: left;
+            padding: 15px;
+        }
+        .text ul i{
+            position: absolute;
+            width: 4%;
+            height: 50%;
+            right: 10px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            background-color: red;
+        }
+        .text ul .edit{
+            position: absolute;
+            width: 9%;
+            height: 70%;
+            bottom: 7px;
+            right: 40px;
+            cursor: pointer;
+            background-color: rgb(12, 183, 29);
+            color: white;
+            padding: 0 0px;
+            align-items: center;
+        }
+        .text ul .edit i{
+
+            position: absolute;
+            bottom: 8px;
+            right: 27px;
+            cursor: pointer;
+            background-color: rgb(12, 183, 29);
+            color: white;
+            padding: 0 0px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>ToDo List</h1>
+        <div class="input">
+            <input type="text" placeholder="Enter your task" id="input">
+            <button id="btn">Add</button>
+        </div>
+        <div class="text"></div>
+    </div>
+
+    <script>
+        let inputs = document.getElementById("input")
+        let text = document.querySelector(".text")
+        let Btn = document.getElementById("btn")
+
+        Btn.addEventListener("click", () => {
+            if (inputs.value === "") {
+                alert("Please enter a task");
+            } else {
+                let newEle = document.createElement("ul");
+                newEle.innerHTML = `
+                    ${inputs.value}
+                    <button class="edit"><i class="fa-sharp-duotone fa-solid fa-pen"></i></button>
+                    <i class="fa-solid fa-x"></i>
+                `;
+                text.appendChild(newEle);
+                inputs.value = "";
+
+                newEle.querySelector("i").addEventListener("click", () => {
+                    newEle.remove();
+                });
+
+                newEle.querySelector(".edit").addEventListener("click", () => {
+                    let taskText = newEle.firstChild.textContent.trim();
+                    newEle.innerHTML = `
+                        <input type="text" value="${taskText}">
+                        <button class="update">Update</button>
+                        <i class="fa-solid fa-x"></i>
+                    `;
+
+                    newEle.querySelector("i").addEventListener("click", () => {
+                        newEle.remove();
+                    });
+
+                    newEle.querySelector(".update").addEventListener("click", () => {
+                        let updatedValue = newEle.querySelector("input").value;
+                        newEle.innerHTML = `
+                            ${updatedValue}
+                            <button class="edit"><i class="fa-sharp-duotone fa-solid fa-pen"></i></button>
+                            <i class="fa-solid fa-x"></i>
+                        `;
+
+                        newEle.querySelector(".edit").addEventListener("click", () => {
+                            let taskText = newEle.firstChild.textContent.trim();
+                            newEle.innerHTML = `
+                                <input type="text" value="${taskText}">
+                                <button class="update">Update</button>
+                                <i class="fa-solid fa-x"></i>
+                            `;
+
+
+                            newEle.querySelector("i").addEventListener("click", () => {
+                                newEle.remove();
+                            });
+
+                            newEle.querySelector(".update").addEventListener("click", () => {
+                                let updatedValue = newEle.querySelector("input").value;
+                                newEle.innerHTML = `
+                                    ${updatedValue}
+                                    <button class="edit"><i class="fa-sharp-duotone fa-solid fa-pen"></i></button>
+                                    <i class="fa-solid fa-x"></i>
+                                `;
+                            });
+                        });
+
+                        newEle.querySelector("i").addEventListener("click", () => {
+                            newEle.remove();
+                        });
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
