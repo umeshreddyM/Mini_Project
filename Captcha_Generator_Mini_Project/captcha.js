@@ -5,9 +5,9 @@ let captchaText = "";
 
 function generateCaptcha() {
     let charsArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let lengthOtp = 6;
+    let length = 6;
     let captcha = [];
-     for (let i = 0; i < lengthOtp; i++) {
+     for (let i = 0; i < length; i++) {
        let index = Math.floor(Math.random() * charsArray.length);
         captcha.push(charsArray[index]);
     }
